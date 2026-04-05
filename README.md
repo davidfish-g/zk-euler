@@ -16,8 +16,6 @@ The proof guarantees: *"There exists a program (identified by this image ID) tha
 
 Not all proofs might be available because they take a long time to generate, with which I'd rather not burden my silicon. 
 
-NOTE: Any change to the ELF binary, including adding new solutions, invalidates all existing proofs. 
-
 ### Prerequisites
 
 - [Rust](https://rustup.rs) (stable)
@@ -66,6 +64,42 @@ pub fn solve_with_input(input: &str) -> String  // problems needing external dat
 ```
 
 The build script then auto-discovers new files and wires everything up.
+NOTE: Any change to the ELF binary, including adding new solutions, invalidates all existing proofs. I recommend just doing a few; 1,2, and 6 are quick to prove, for example.
+
+## Proof generation times
+
+| Problem | Rough proof time (m3 pro) |
+| -------- | -------- |
+| 1 | <10s |
+| 2 | <10s |
+| 3 | ~5h |
+| 4 | not done yet |
+| 5 | not done yet |
+| 6 | <10s |
+| 7 | not done yet |
+| 8 | not done yet |
+| 9 | not done yet |
+| 10 | not done yet |
+| 11 | not done yet |
+| 12 | not done yet |
+| 13 | not done yet |
+| 14 | not done yet |
+| 15 | not done yet |
+| 16 | not done yet |
+| 17 | not done yet |
+| 18 | not done yet |
+| 19 | not done yet |
+| 20 | not done yet |
+| 21 | not done yet |
+| 22 | not done yet |
+| 23 | not done yet |
+| 27 | not done yet |
+| 34 | not done yet |
+| 35 | not done yet |
+| 50 | not done yet |
+| 67 | not done yet |
+| 92 | not done yet |
+
 
 ## Project structure
 
