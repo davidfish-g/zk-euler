@@ -14,6 +14,8 @@ The proof guarantees: *"There exists a program (identified by this image ID) tha
 
 ## Verifying the proofs
 
+Not all proofs might be available because they take a long time to generate, with which I'd rather not burden my silicon.
+
 ### Prerequisites
 
 - [Rust](https://rustup.rs) (stable)
@@ -51,6 +53,17 @@ cargo run -p host -- <problem_number|all>
 cargo run -p verify -- <problem_number|all>
 ```
 
+
+## Adding a new problem
+
+Create `src/problems/p###.rs` (zero-padded, e.g. `p019.rs`) with one of these signatures:
+
+```rust
+pub fn solve() -> String           // self-contained problems
+pub fn solve_with_input(input: &str) -> String  // problems needing external data (put input in inputs/p###.txt)
+```
+
+The build script then auto-discovers new files and wires everything up.
 
 ## Project structure
 
