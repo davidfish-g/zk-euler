@@ -1,0 +1,4 @@
+# Encrypt solution source code
+src/problems/** filter=git-crypt diff=git-crypt
+methods/guest/src/** filter=git-crypt diff=git-crypt
+host/src/** filter=git-crypt diff=git-crypt
