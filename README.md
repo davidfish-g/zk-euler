@@ -14,7 +14,9 @@ The proof guarantees: *"There exists a program (identified by this image ID) tha
 
 ## Verifying the proofs
 
-Not all proofs might be available because they take a long time to generate, with which I'd rather not burden my silicon.
+Not all proofs might be available because they take a long time to generate, with which I'd rather not burden my silicon. 
+
+NOTE: Any change to the ELF binary, including adding new solutions, invalidates all existing proofs. 
 
 ### Prerequisites
 
