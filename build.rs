@@ -10,13 +10,13 @@ fn main() {
     for entry in fs::read_dir(problems_dir).unwrap() {
         let entry = entry.unwrap();
         let file_name = entry.file_name().to_string_lossy().to_string();
-        if let Some(num_str) = file_name.strip_prefix('p').and_then(|s| s.strip_suffix(".rs")) {
-            if let Ok(num) = num_str.parse::<u32>() {
-                let contents = fs::read_to_string(entry.path()).unwrap();
-                let has_input = contents.contains("fn solve_with_input");
-                let mod_name = file_name.strip_suffix(".rs").unwrap().to_string();
-                problems.push((num, mod_name, has_input));
-            }
+        if let Some(num_str) = file_name.strip_prefix('p').and_then(|s| s.strip_suffix(".rs"))
+            && let Ok(num) = num_str.parse::<u32>()
+        {
+            let contents = fs::read_to_string(entry.path()).unwrap();
+            let has_input = contents.contains("fn solve_with_input");
+            let mod_name = file_name.strip_suffix(".rs").unwrap().to_string();
+            problems.push((num, mod_name, has_input));
         }
     }
 
