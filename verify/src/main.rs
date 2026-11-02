@@ -55,21 +55,26 @@ fn main() {
             }
         };
 
+        // Verify before trusting anything in the journal
+        if let Err(e) = receipt.verify(image_id) {
+            eprintln!("Problem {:>3}: FAILED ({})", problem, e);
+            failed += 1;
+            continue;
+        }
+
         // Decode the journal (public output)
         let journal = &receipt.journal.bytes;
         let prob_num: u32 = risc0_zkvm::serde::from_slice(&journal[..4]).unwrap();
         let answer: String = risc0_zkvm::serde::from_slice(&journal[4..]).unwrap();
 
-        match receipt.verify(image_id) {
-            Ok(()) => {
-                println!("Problem {:>3}: {} [VERIFIED]", prob_num, answer);
-                passed += 1;
-            }
-            Err(e) => {
-                eprintln!("Problem {:>3}: FAILED ({})", prob_num, e);
-                failed += 1;
-            }
+        if prob_num != *problem {
+            eprintln!("Problem {:>3}: FAILED (proof is for problem {})", problem, prob_num);
+            failed += 1;
+            continue;
         }
+
+        println!("Problem {:>3}: {} [VERIFIED]", problem, answer);
+        passed += 1;
     }
 
     println!("\n{} verified, {} failed", passed, failed);
