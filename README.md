@@ -1,13 +1,10 @@
 # ZK Verified Project Euler Solutions in Rust
 
-My [Project Euler](https://projecteuler.net) solutions in Rust. The code is encrypted, and each answer comes with a zero-knowledge proof from [RISC Zero](https://risczero.com)'s zkVM that the committed code produced it.
-
-## Requirements
-
-- [Rust](https://rustup.rs)
-- [RISC Zero toolchain](https://dev.risczero.com/api/zkvm/install)
+My [Project Euler](https://projecteuler.net) solutions in Rust. The code is encrypted, and each answer comes with a zero-knowledge proof from RISC Zero's zkVM that the committed code produced it.
 
 ## Usage
+
+Requires Rust and the RISC Zero toolchain.
 
 ```sh
 cargo run -p verify -- <n|all>                # verify proofs; needs only proofs/
